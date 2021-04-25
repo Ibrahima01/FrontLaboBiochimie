@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "LaboBiochimie"
+  "defaultProject": "LaboBiochimie",
+  "cli": {
+    "analytics": "ade76cff-5774-4156-8a6c-8659488979a7"
+  }
 }
