@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="alert alert-success" *ngIf="erreur1=='no'">
+        Compte créé avec succèss !
+    </div>
+    <div class="alert alert-danger" *ngIf="erreur1!='no' && erreur1.length>0">
+        {{erreur1}}
+    </div>
+    <h1>Vos coordonnées</h1>
+    <label>Nom :</label><br>
+    <input type="text" name="nom" size="20"  maxlength="40" id="nom" value="" [(ngModel)]="personnelACreer.nom_personnel"/><br>
+    <label>Prénom :</label><br>
+    <input type="text" name="prenom" size="20" maxlength="40" id="prenom" value="" [(ngModel)]="personnelACreer.prenom_personnel"/><br>
+    <label>Votre email :</label><br>
+    <input type="email" name="email" size="20" maxlength="40" id="email" value="email" [(ngModel)]="personnelACreer.email"/><br>
+    <label>Gouvernorat</label><br>
+    <input type="email" name="email" size="20" maxlength="40" id="email" value="email" [(ngModel)]="personnelACreer.gouvernorat"/><br><br>
+    <button type="button" (click)="creer()">Creer de compte</button>
+</div>

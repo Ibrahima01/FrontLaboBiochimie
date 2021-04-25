@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="alert alert-success" *ngIf="erreur1=='no'">
+        Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le 20/04/2021 à 8H00.
+    </div>
+    <div class="alert alert-danger" *ngIf="erreur1!='no' && erreur1.length>0">
+    {{erreur1}}
+    </div>
+    <div class="form-group">
+        <form >
+                <legend>Vos coordonnées :</legend><br>
+                <label >Nom :</label><br>
+                <input class="form-control" type="text" name="nom" size="20"  maxlength="40" id="nom" value="" [(ngModel)]="patientACreer.nom_Patient"/>
+                <label >Prénom :</label><br>
+                <input class="form-control" type="text" name="prenom" size="20" maxlength="40" id="prenom" value="" [(ngModel)]="patientACreer.prenom_Patient"/>
+                <label >Votre email :</label><br>
+                <input class="form-control" type="email" name="email" size="20" maxlength="40" id="email" value="" [(ngModel)]="patientACreer.email"/><br>
+                
+            <p>
+                <button class="btn btn-primary" (click)="prendreRDV()">Prendre RDV</button>
+            </p>
+        </form>
+    </div>
+    <div class="alert alert-success" *ngIf="erreur1=='no'">
+        La date du rendez-vous est le {{dates}}.
+    </div>
+    <div class="alert alert-danger" *ngIf="erreur1!='no' && erreur1.length>0">
+    {{erreur1}}
+    </div>
+    <div class="alert alert-success" *ngIf="erreur2=='no'">
+        Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le 30/04/2021 à 8H00.
+    </div>
+    <div class="alert alert-danger" *ngIf="erreur2!='no' && erreur2.length>0">
+    {{erreur2}}
+    </div>
+    <div>
+        <form >
+                <label >Votre identifiant</label><br>
+                <input class="form-control" type="email" name="email" size="20" maxlength="40" value="" [(ngModel)]="idPatient"/><br>
+                
+            <p>
+                <button class="btn btn-primary" (click)="afficherDate()">Afficher la date du RDV</button>
+                <button class="btn btn-primary" (click)="prendreRDVById()">Prendre un RDV</button>
+            </p>
+            <div class="alert alert-success" *ngFor="let date of dates">
+                La date DU Rendez-vous est le {{date}}
+            </div>
+        </form>
+    </div>
+</div>
