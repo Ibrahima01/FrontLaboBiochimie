@@ -1,0 +1,45 @@
+<app-menu></app-menu>
+<div class="container">
+    <div class="alert alert-success" *ngIf="erreur1=='no'">
+        Patient ajouté avec succèss !
+    </div>
+    <div class="alert alert-danger" *ngIf="erreur1!='no' && erreur1.length>0">
+    {{erreur1}}
+    </div>
+    <form >
+        <fieldset>
+            <legend>Vos coordonnées :</legend><br>
+            <label>Nom :</label><br>
+            <input type="text" name="nom" size="20"  maxlength="40" [(ngModel)]="patientACreer.nom_Patient" required/><br>
+            <label>Prénom :</label><br>
+            <input type="text" name="prenom" size="20" maxlength="40" [(ngModel)]="patientACreer.prenom_Patient" required/><br>
+            <label>Votre age :</label><br>
+            <input type="number" name="age" size="20" maxlength="40" [(ngModel)]="patientACreer.age" /><br>
+            <label>Sexe</label><br>
+            <select name="Sexe" [(ngModel)]="patientACreer.sexe">
+                <option value="Masculin">Masculin</option>
+                <option value="Feminin" selected="selected">Feminin</option>
+            </select><br>
+            <label>Etes-vous obese?</label><br>
+            <select name="obese" [(ngModel)]="patientACreer.sexe">
+                <option value="true">true</option>
+                <option value="false" selected="selected">false</option>
+            </select><br>
+            <label>Etes-vous en état</label><br>
+            <select name="etat" [(ngModel)]="patientACreer.femme_enceinte">
+                <option value="true">true</option>
+                <option value="false" selected="selected">false</option>
+            </select><br>
+            <label>Numéro de téléphone :</label><br>
+            <input type="number" name="telephone" size="20" maxlength="40" [(ngModel)]="patientACreer.age" /><br>
+            <label>Nom d'utilsateur :</label><br>
+            <input type="text" name="username" size="20" maxlength="40" [(ngModel)]="patientACreer.user.username" /><br>
+            <label>Mot de passe :</label><br>
+            <input type="text" name="password" size="20" maxlength="40" [(ngModel)]="patientACreer.user.password" /><br><br>
+            
+        </fieldset>
+        <p>
+            <button (click)="creer()" >Valider</button>
+        </p>
+    </form>
+</div>

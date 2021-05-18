@@ -7,6 +7,9 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { PERSONNE_KEY } from '../config/constant';
+import { Personne } from '../models/personne';
+import { getPersonneFromLocalStorage } from '../utils/personne.utils';
 import { LoginService } from './login.service';
 
 @Injectable()
@@ -20,20 +23,13 @@ export class AuthGuardService implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    return new Promise<boolean>((resolve) => {
-      this.loginService.user().subscribe(
-        (res) => {
-          if (res.username) {
-            resolve(true);
-          } else {
-            resolve(false);
-          }
-        },
-        (error: any) => {
-          this.router.navigate(['login']);
-          resolve(false);
-        }
-      );
-    });
+
+    const personne: Personne = getPersonneFromLocalStorage();
+    if(personne && personne.user) {
+      return true;
+    } else {
+      this.router.navigate(['login']);
+      return false;
+    }
   }
 }

@@ -19,6 +19,20 @@ import { LoginService } from './services/login.service';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PatientGuardService } from './services/patient-guard.service';
+import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ListePatientsComponent } from './liste-patients/liste-patients.component';
+import { ListeRDVComponent } from './liste-rdv/liste-rdv.component';
+import { HistoriqueComponent } from './historique/historique.component';
+import { StatistiqueJourComponent } from './statistique-jour/statistique-jour.component';
+import { StatistiqueAnneeComponent } from './statistique-annee/statistique-annee.component';
+import { CommentairesComponent } from './commentaires/commentaires.component';
+import { ListePatientService } from './services/liste-patient.service';
+import { CreercompteComponent } from './creercompte/creercompte.component';
+import { CreerCompteService } from './services/crrercompte.service';
+import { ParametreService } from './services/parametre.service';
+import { CommentaireService } from './services/commentaire.service';
 
 @NgModule({
   declarations: [
@@ -30,12 +44,24 @@ import { PatientGuardService } from './services/patient-guard.service';
     ParametreComponent,
     RdvComponent,
     LoginComponent,
+    MenuComponent,
+    ListePatientsComponent,
+    ListeRDVComponent,
+    HistoriqueComponent,
+    StatistiqueJourComponent,
+    StatistiqueAnneeComponent,
+    CommentairesComponent,
+    CreercompteComponent,
   ],
-  imports: [FormsModule, BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [FormsModule, BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [
     PatientService,
     RdvService,
     PersonnelService,
+    ListePatientService,
+    CreerCompteService,
+    ParametreService,
+    CommentaireService,
     LoginService,
     AuthGuardService,
     PatientGuardService,

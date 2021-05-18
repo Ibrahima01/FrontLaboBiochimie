@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TOKEN_KEY } from '../config/constant';
+import { PERSONNE_KEY, TOKEN_KEY } from '../config/constant';
 import { Credentials } from '../models/credentials';
 import { LoginService } from '../services/login.service';
 
@@ -14,12 +14,19 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {}
+
+  getPersonneInfo(): void {
+    this.loginService.personne().subscribe(res => {
+      if(res) {
+        localStorage.setItem(PERSONNE_KEY, JSON.stringify(res));
+          this.router.navigate(['rdv']);
+    }
+    })
+  }
   login(): void {
     this.loginService.login(this.credentials).subscribe((res) => {
-      localStorage.setItem(TOKEN_KEY, res);
-      if (res && res.length > 0) {
-        this.router.navigate(['patient']);
-      }
+      localStorage.setItem(TOKEN_KEY, res);  
+        this.getPersonneInfo();
     });
   }
 }

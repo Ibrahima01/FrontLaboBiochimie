@@ -1,4 +1,6 @@
+<app-menu></app-menu>
 <div class="container">
+    <h1>BIENVENUE</h1>
     <div class="alert alert-success" *ngIf="erreur1=='no'">
         Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le 20/04/2021 à 8H00.
     </div>
@@ -7,17 +9,13 @@
     </div>
     <div class="form-group">
         <form >
-                <legend>Vos coordonnées :</legend><br>
-                <label >Nom :</label><br>
-                <input class="form-control" type="text" name="nom" size="20"  maxlength="40" id="nom" value="" [(ngModel)]="patientACreer.nom_Patient"/>
-                <label >Prénom :</label><br>
-                <input class="form-control" type="text" name="prenom" size="20" maxlength="40" id="prenom" value="" [(ngModel)]="patientACreer.prenom_Patient"/>
-                <label >Votre email :</label><br>
-                <input class="form-control" type="email" name="email" size="20" maxlength="40" id="email" value="" [(ngModel)]="patientACreer.email"/><br>
-                
-            <p>
-                <button class="btn btn-primary" (click)="prendreRDV()">Prendre RDV</button>
-            </p>
+            <label >Votre identifiant</label><br>
+            <input class="form-control" disabled="true" type="id" name="id" size="20" maxlength="40"  value=""  [(ngModel)]="personne.user.id"><br>
+            <label >Nom :</label><br>
+            <input class="form-control" disabled="true" type="text" name="nom" size="20"  maxlength="40" id="nom" value="" [(ngModel)]="personne.nom"/><br>
+            <label >Prénom :</label><br>
+            <input class="form-control"  disabled="true" type="text" name="prenom" size="20" maxlength="40" id="prenom" value="" [(ngModel)]="personne.prenom"/>
+    
         </form>
     </div>
     <div class="alert alert-success" *ngIf="erreur1=='no'">
@@ -27,23 +25,45 @@
     {{erreur1}}
     </div>
     <div class="alert alert-success" *ngIf="erreur2=='no'">
-        Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le 30/04/2021 à 8H00.
+        Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le {{dates}} au box numero 3.<br><br> 
+        <button class="btn btn-primary">Annuler le RDV</button><br>
     </div>
     <div class="alert alert-danger" *ngIf="erreur2!='no' && erreur2.length>0">
     {{erreur2}}
     </div>
     <div>
         <form >
-                <label >Votre identifiant</label><br>
-                <input class="form-control" type="email" name="email" size="20" maxlength="40" value="" [(ngModel)]="idPatient"/><br>
-                
             <p>
-                <button class="btn btn-primary" (click)="afficherDate()">Afficher la date du RDV</button>
+                <!--<button class="btn btn-primary" (click)="afficherDate()">Afficher la date du RDV</button>-->
                 <button class="btn btn-primary" (click)="prendreRDVById()">Prendre un RDV</button>
             </p>
-            <div class="alert alert-success" *ngFor="let date of dates">
-                La date DU Rendez-vous est le {{date}}
-            </div>
         </form>
+    </div><br><br><br>
+    <div>
+        <h2>COMMENTAIRES</h2>
+        <style>
+            textarea {
+                font-size: .8rem;
+                letter-spacing: 1px;
+            }
+            textarea {
+                padding: 10px;
+                height: auto;
+                line-height: 1.5;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                box-shadow: 1px 1px 1px #999;
+            }
+        </style>
+        <textarea id="story" name="story" rows="5" cols="33">
+        </textarea><br>
+        <button class="btn btn-info" (click)="commenter()">Envoyer</button><br><br>
+        <div class="alert alert-success" *ngIf="erreurCommentaire=='no'">
+            Commentaire envoyé.<br><br> 
+            <button class="btn btn-primary">Annuler le RDV</button><br>
+        </div>
+        <div class="alert alert-danger" *ngIf="erreurCommentaire!='no' && erreur2.length>0">
+        {{erreur2}}
+        </div>
     </div>
 </div>

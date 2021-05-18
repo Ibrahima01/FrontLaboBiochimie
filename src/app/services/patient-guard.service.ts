@@ -9,6 +9,9 @@ import {
 import { Observable } from 'rxjs';
 import { ROLE } from '../models/role.enum';
 import { LoginService } from './login.service';
+import { PERSONNE_KEY } from '../config/constant';
+import { Personne } from '../models/personne';
+import { getPersonneFromLocalStorage } from '../utils/personne.utils';
 
 @Injectable()
 export class PatientGuardService implements CanActivate {
@@ -21,21 +24,14 @@ export class PatientGuardService implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    return new Promise<boolean>((resolve) => {
-      this.loginService.user().subscribe(
-        (res) => {
-          if (res.role === ROLE.ADMIN) {
-            resolve(true);
-          } else {
-            this.router.navigate(['login']);
-            resolve(false);
-          }
-        },
-        (error: any) => {
-          this.router.navigate(['login']);
-          resolve(false);
-        }
-      );
-    });
+      const personne: Personne = getPersonneFromLocalStorage();  
+    if(personne && personne.user && personne.user.role === ROLE.PATIENT) {
+      return true;
+    } else {
+      this.router.navigate(['login']);
+      return false;
+    }
+ 
   }
+
 }

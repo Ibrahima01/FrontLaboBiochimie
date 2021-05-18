@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Patient } from '../models/patient';
 import { PatientService } from '../services/patient.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../models/user';
+import { ROLE } from '../models/role.enum';
+import { RdvService } from '../services/rdv.service';
+import { Credentials } from '../models/credentials';
 
 @Component({
   selector: 'app-patient',
@@ -13,19 +17,21 @@ export class PatientComponent implements OnInit {
   idPatient: number=1;
   erreur1: any='';
   erreur2: any='';
+  user: User=new User(0, "",'','PATIENT');
+  credentials: Credentials = new Credentials('', '');
   //var img=new HTMLImageElement();
-  patientACreer: Patient =new Patient(0, '','','','','','');
+  patientACreer: Patient =new Patient(0, '','',0,'',false, false,'','',this.user);
 
-  constructor(private patientService: PatientService, private route:ActivatedRoute) { }
+  constructor(private patientService: PatientService, private rdvService: RdvService, private route:ActivatedRoute) { }
 
   patients: Patient[]=[];
-  findPatient: Patient=new Patient(0,'','','','','','');
+  findPatient: Patient=new Patient(0, '','',0,'',false, false,'','',this.user);
   email: string='';
   password: string='';
   existe: boolean=false;
 
   ngOnInit(): void {
-    this.getPatients();
+    //this.getPatients();
   }
 
   getPatients(): void{
@@ -54,6 +60,11 @@ export class PatientComponent implements OnInit {
   afficher(): void{
     this.patientService.getPatientByid(this.idPatient).subscribe(res => {
       this.findPatient = res;})
+  }
+  afficherPatient(): void {
+    this.rdvService.getPatient(this.credentials.username).subscribe(res=>{
+      this.patientACreer=res;
+    })
   }
   supprimer(): void{
     this.patientService.deletePatient(this.idPatient).subscribe(res=>{this.findPatient=res;})

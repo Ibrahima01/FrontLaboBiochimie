@@ -1,0 +1,20 @@
+<app-menu></app-menu>
+<div class="container">
+    <h1>Liste des patients</h1>
+<table class="table">
+    <thead>
+        <th>Code patient</th>
+        <th>Nom patient</th>
+        <th>Prénom patient</th>
+        <th>Tél</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of patients">
+            <td>{{patient.id}}</td>
+            <td>{{patient.nom_Patient}}</td>
+            <td>{{patient.prenom_Patient}}</td>
+            <td>{{patient.tel}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

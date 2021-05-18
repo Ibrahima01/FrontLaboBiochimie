@@ -1,1 +1,57 @@
-<p>parametre works!</p>
+<app-menu></app-menu><br>
+<div class="container">
+    <form>
+        <!--
+        <td>{{parametre2.nombre_BOX}}</td>
+        <td>{{parametre2.volume_HORRAIRE_PAR_BOX}}</td>
+        <td>{{parametre2.heure_DEBUT}}</td>
+        <td>{{parametre2.heure_FIN}}</td>
+        <td>{{parametre2.quotas}}</td>
+        <td>{{parametre2.duree_PRELEVEMENT_AGE_0_2}}</td>
+        <td>{{parametre2.duree_PRELEVEMENT_AGE_2_12}}</td>
+        <td>{{parametre2.duree_PRELEVEMENT_AGE_PLUS12}}</td>
+        <td>{{parametre2.duree_PRELEVEMENT_OBESE}}</td>
+    
+
+        <thead>
+            <th>Nombre de box</th>
+            <th>Volume horaire</th>
+            <th>Heure début</th>
+            <th>Heure de descente</th>
+            <th>Quotas</th>
+            <th>Durée prélèvement d'un enfant de moins de deux ans</th>
+            <th>Durée de prélèvement d'un enfant de 2 à douze ans</th>
+            <th>Durée de prélèvement d'une personne âgée de plus de douze ans</th>
+            <th>Durée de prélèvement d'une personne obèse</th>
+        </thead>
+        -->
+        <button class="btn btn-primary" (click)="toggleInput()">Editer</button><br><br>
+        <div >
+            <label>Nombre de box :</label>
+            <input class="form-control" name="nombre_BOX" [(ngModel)]="parametre2.nombre_BOX" disabled="{{!edit}}"><br>
+            <label>Volume horaire par infirmier par jour (nombre de minutes) :</label>
+            <input class="form-control" name="volume_HORRAIRE_PAR_BOX" [(ngModel)]="parametre2.volume_HORRAIRE_PAR_BOX" disabled="{{!edit}}"><br>
+            <label>Heure de début :</label>
+            <input class="form-control" name="heure_DEBUT" [(ngModel)]="parametre2.heure_DEBUT" disabled="{{!edit}}"><br>
+            <label>Heure d'arrêt :</label>
+            <input class="form-control" name="heure_FIN" [(ngModel)]="parametre2.heure_FIN" disabled="{{!edit}}"><br>
+            <label>Quotas :</label>
+            <input class="form-control" name="quotas" [(ngModel)]="parametre2.quotas" disabled="{{!edit}}"><br>
+            <label>Durée de prélèvement d'un enfant de moins de deux ans :</label>
+            <input class="form-control" name="duree_PRELEVEMENT_AGE_0_2" [(ngModel)]="parametre2.duree_PRELEVEMENT_AGE_0_2" disabled="{{!edit}}"><br>
+            <label>Durée de prélèvement d'un enfant de 2 à 12 ans :</label>
+            <input class="form-control" name="duree_PRELEVEMENT_AGE_2_12" [(ngModel)]="parametre2.duree_PRELEVEMENT_AGE_2_12" disabled="{{!edit}}"><br>
+            <label>Durée de prélèvement d'un enfant agé de plus de 12 ans :</label>
+            <input class="form-control" name="duree_PRELEVEMENT_AGE_PLUS12" [(ngModel)]="parametre2.duree_PRELEVEMENT_AGE_PLUS12" disabled="{{!edit}}"><br>
+            <label>Durée de prélèvement d'une personne obèse :</label>
+            <input class="form-control" name="duree_PRELEVEMENT_OBESE" [(ngModel)]="parametre2.duree_PRELEVEMENT_OBESE" disabled="{{!edit}}"><br>
+       </div>
+       <button class="btn btn-success" *ngIf="edit" (click)="update()">Mettre jour</button>  
+       <div class="alert alert-success" *ngIf="erreur1=='no'">
+            Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le 20/04/2021 à 8H00.
+        </div>
+        <div class="alert alert-danger" *ngIf="erreur1!='no' && erreur1.length>0">
+            {{erreur1}}
+        </div>      
+    </form>
+</div>

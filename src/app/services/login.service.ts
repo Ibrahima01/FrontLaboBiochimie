@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { BASE_URL, TOKEN_KEY } from '../config/constant';
 import { Credentials } from '../models/credentials';
+import { Personne } from '../models/personne';
 import { User } from '../models/user';
 @Injectable()
 export class LoginService {
@@ -17,11 +18,11 @@ export class LoginService {
         })
       );
   }
-  user(): Observable<User> {
+personne(): Observable<Personne> {
     const headers: HttpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY) || ''}`,
     });
-    return this.http.get<User>(`${BASE_URL}/user`, { headers });
+    return this.http.get<Personne>(`${BASE_URL}/personne`, { headers });
   }
 }
