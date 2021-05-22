@@ -3,19 +3,19 @@ import { Patient } from "./patient";
 import { Personnel } from "./personnel";
 
 export class RDV{
-    codeRDV: number;
-    dateRDV: Date;
-    numBox: number;
-    patientRDV: Patient;
-    personnelRDV: Personnel;
-    adminRDV: Admin;
-    
-    constructor(codeRDV: number, dateRDV: Date, numBOX: number, patientRDV: Patient, personnelRDV: Personnel, adminRDV: Admin){
-        this.codeRDV=codeRDV;
-        this.dateRDV=dateRDV;
-        this.numBox=numBOX;
-        this.patientRDV=patientRDV;
-        this.personnelRDV=personnelRDV;
-        this.adminRDV=adminRDV;
+    id_RDV?: number;
+    date_heure_RDV?: Date;
+    numero_box?: number;
+    RDVPatient?: Patient;
+    RDVPersonnel?: Personnel;
+    RDVAdmin?: Admin;
+
+    constructor(id_RDV?: number, date_heure_RDV?: Date, numero_box?: number, RDVPatient?: Patient, RDVPersonnel?: Personnel, RDVAdmin?: Admin){
+        this.id_RDV=id_RDV;
+        this.date_heure_RDV=date_heure_RDV;
+        this.numero_box=numero_box;
+        this.RDVPatient=RDVPatient;
+        this.RDVPersonnel=RDVPersonnel;
+        this.RDVAdmin=RDVAdmin;
     }
 }

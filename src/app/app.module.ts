@@ -33,6 +33,7 @@ import { CreercompteComponent } from './creercompte/creercompte.component';
 import { CreerCompteService } from './services/crrercompte.service';
 import { ParametreService } from './services/parametre.service';
 import { CommentaireService } from './services/commentaire.service';
+import { HistoriqueService } from './services/historique.service';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CommentaireService } from './services/commentaire.service';
   ],
   imports: [FormsModule, BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [
+    LoginService,
     PatientService,
     RdvService,
     PersonnelService,
@@ -62,6 +64,7 @@ import { CommentaireService } from './services/commentaire.service';
     CreerCompteService,
     ParametreService,
     CommentaireService,
+    HistoriqueService,
     LoginService,
     AuthGuardService,
     PatientGuardService,

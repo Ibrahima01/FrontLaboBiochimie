@@ -30,4 +30,10 @@ export class RdvService {
     getPatient(username: string): Observable<Patient> {
         return this.http.get<Patient>(`${BASE_URL}/user/findPatientByUsername/${username}`, { headers: this.headers });
       }
+    deleteRDV(idRDV: number):Observable<RDV>{
+        return this.http.post<RDV>(`${BASE_URL}/RDV/deleteRDV/${idRDV}`,{}, { headers: this.headers });
+    }
+    findRDVByPatient(idPatient: number):Observable<RDV>{
+        return this.http.get<RDV>(`${BASE_URL}/RDV/findRDVByPatient/${idPatient}`, {headers:this.headers});
+    }
 }

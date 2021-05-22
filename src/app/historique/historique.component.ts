@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Personne } from '../models/personne';
+import { RDV } from '../models/rdv';
+import { User } from '../models/user';
+import { HistoriqueService } from '../services/historique.service';
+import { getPersonneFromLocalStorage } from '../utils/personne.utils';
 
 @Component({
   selector: 'app-historique',
@@ -7,9 +12,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoriqueComponent implements OnInit {
 
-  constructor() { }
+  constructor(private historiqueService: HistoriqueService) { }
+
+  user: User=new User(0,"",'','PATIENT');
+  public personne: Personne = {
+    user: this.user,
+    prenom: "",
+    nom: "",
+  };
 
   ngOnInit(): void {
+    this.personne = getPersonneFromLocalStorage();
+    this.getHistorique();
+  }
+  rdv: RDV[]=[];
+  idPatient: number=1;
+  getHistorique():void{
+    this.idPatient=this.personne.user.id;
+    this.historiqueService.getHistoriqueRDVPatient(this.idPatient).subscribe(
+      res=>{this.rdv=res}
+    );
+    console.log( this.rdv);
   }
 
 }

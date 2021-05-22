@@ -10,7 +10,8 @@ import { CreerCompteService } from '../services/crrercompte.service';
 })
 export class CreercompteComponent implements OnInit {
 
-  erreur1: any='';
+  hasError: boolean= false;
+  message: string = '';
   user: User=new User(0, "",'','PATIENT');
   constructor(private creercompteService: CreerCompteService) { }
 
@@ -19,11 +20,16 @@ export class CreercompteComponent implements OnInit {
 
   patientACreer: Patient =new Patient(0, '','',0,'',false, false,'','',this.user)
   creer():void{
+    this.hasError = false;
+    this.message = '';
     this.patientACreer.user.role="PATIENT";
     this.creercompteService.creerPatient(this.patientACreer).subscribe(res=>{
-      this.erreur1='no';
-    },error=>{
-      this.erreur1=error;
+      this.hasError = false;
+      this.message = 'Compte créee avec succèss';
+    }, (error: any) => {
+      console.log("error", error)
+      this.hasError = true;
+      this.message = error.error;
     })
   }
 

@@ -1,2 +1,17 @@
 <app-menu></app-menu>
-<p>commentaires works!</p>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>Nom du commentateur</th>
+            <th>Prénom du commentateur</th>
+            <th>Commentaire</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let commentaire of commentaires">
+                <td>{{commentaire.patient_commentaire.nom_Patient}}</td>
+                <td>{{commentaire.patient_commentaire.prenom_Patient}}</td>
+                <td>{{commentaire.commentaire}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
