@@ -4,10 +4,12 @@
     <table class="table">
         <thead>
             <th>Date rendez-vous</th>
+            <th>Numéro de box</th>
         </thead>
         <tbody>
             <tr *ngFor="let rdv1 of rdv">
                 <td>{{rdv1.date_heure_RDV}}</td>
+                <td>{{rdv1.numero_box}}</td>
             </tr>
         </tbody>
     </table>

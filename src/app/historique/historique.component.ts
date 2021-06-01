@@ -14,6 +14,7 @@ export class HistoriqueComponent implements OnInit {
 
   constructor(private historiqueService: HistoriqueService) { }
 
+  //rdv2: RDV  = new RDV();
   user: User=new User(0,"",'','PATIENT');
   public personne: Personne = {
     user: this.user,
@@ -34,5 +35,5 @@ export class HistoriqueComponent implements OnInit {
     );
     console.log( this.rdv);
   }
-
+  
 }

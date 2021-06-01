@@ -20,7 +20,7 @@
     </div>
     <div class="alert alert-success" *ngIf="erreur2=='no'">
         Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le {{dateStr}} au box numéro {{rdv.numero_box}}.<br><br> 
-        <button class="btn btn-danger" (click)="delete()">Anuler RDV</button>
+        <button class="btn btn-danger" (click)="delete()">Annuler RDV</button>
     </div>
     <div class="alert alert-danger" *ngIf="erreur2!='no' && erreur2.length>0">
     {{erreur2}}

@@ -10,10 +10,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let patient of patients">
-            <td>{{patient.id}}</td>
+            <td >{{patient.id}}</td>
             <td>{{patient.nom_Patient}}</td>
             <td>{{patient.prenom_Patient}}</td>
-            <td>{{patient.tel}}</td>
+            <td>{{patient.tel}}</td><!--
+            <td><button class="btn btn-info" (click)="delete()">Modifier</button></td>
+            <td><button class="btn btn-danger">Supprimer</button></td>
+            -->
         </tr>
     </tbody>
 </table>

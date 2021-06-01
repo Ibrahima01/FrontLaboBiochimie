@@ -6,15 +6,18 @@ import { Patient } from '../models/patient';
 
 @Injectable()
 export class PatientService {
-  constructor(private http: HttpClient) {}
+  headers: HttpHeaders;
+    constructor (private http: HttpClient){
+         this.headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY) || ''}`,
+        });
+    }
 
   getPatients(): Observable<Patient[]> {
-    const headers: HttpHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY) || ''}`,
-    });
+    
     return this.http.get<Patient[]>(`${BASE_URL}/Patient/GetAllPatients`, {
-      headers,
+      headers: this.headers
     });
   }
 
@@ -23,7 +26,7 @@ export class PatientService {
       'Content-Type': 'application/json',
     });
     return this.http.post<Patient>(`${BASE_URL}/Patient/newPatient`, patient, {
-      headers,
+      headers: this.headers
     });
   }
   /*
@@ -40,11 +43,8 @@ export class PatientService {
     //BASE_URL+'/Universite/findUniversite/'+id;
   }
   deletePatient(id: number): Observable<Patient> {
-    /*const headers: HttpHeaders=new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Acces-Controle-Allow-Origin': 'http://localhost:4200',
-        });*/
-    return this.http.delete<Patient>(`${BASE_URL}/Patient/deletePatient/${id}`);
+    
+    return this.http.post<Patient>(`${BASE_URL}/Patient/deletePatient/${id}`, {}, {headers: this.headers});
   } /*
     authentification(email: string, password: string):Observable<boolean>{
         let parameters=new HttpParams().set(email, password);

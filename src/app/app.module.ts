@@ -34,6 +34,10 @@ import { CreerCompteService } from './services/crrercompte.service';
 import { ParametreService } from './services/parametre.service';
 import { CommentaireService } from './services/commentaire.service';
 import { HistoriqueService } from './services/historique.service';
+import { PresentationComponent } from './presentation/presentation.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactsService } from './services/contacts.service';
+import { PresentationService } from './services/presentation.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +57,8 @@ import { HistoriqueService } from './services/historique.service';
     StatistiqueAnneeComponent,
     CommentairesComponent,
     CreercompteComponent,
+    PresentationComponent,
+    ContactsComponent,
   ],
   imports: [FormsModule, BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [
@@ -65,6 +71,8 @@ import { HistoriqueService } from './services/historique.service';
     ParametreService,
     CommentaireService,
     HistoriqueService,
+    ContactsService,
+    PresentationService,
     LoginService,
     AuthGuardService,
     PatientGuardService,

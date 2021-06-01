@@ -14,6 +14,8 @@ import { CreercompteComponent } from './creercompte/creercompte.component';
 import { ParametreComponent } from './parametre/parametre.component';
 import { CommentairesComponent } from './commentaires/commentaires.component';
 import { HistoriqueComponent } from './historique/historique.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { PresentationComponent } from './presentation/presentation.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'historique',
     component: HistoriqueComponent,
+  },
+  {
+    path: 'contacts',
+    component: ContactsComponent,
+  },
+  {
+    path: 'presentation',
+    component: PresentationComponent,
   },
   { path: 'rdv', component: RdvComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },

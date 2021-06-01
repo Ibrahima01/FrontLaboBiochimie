@@ -8,35 +8,28 @@ export const PATIENT_MENU: Menu [] = [
         url: '/rdv',
     },
     {
-        name: 'Configurer les paramètres',
-        url: '/configuration'
-    },
-    {
-        name: 'Rubrique commentaires',
-        url: '/commentaires'
-    },
-    {
         name: `Historique`,
         url: '/historique',
     },
     {
-        name: 'Utilsateurs',
-        url: '/listePatient'
+        name: `Présentation`,
+        url: '/presentation',
     },
+    {
+        name: `Contacts`,
+        url: '/contacts',
+    }
+    /*,
     {
         name: 'Statistique',
         url: '/statistique'
-    }
+    }*/
 ];
 
 export const ADMIN_MENU: Menu [] = [
     {
-        name: 'Statistique',
-         url: '/statistique'
-    },
-    {
-        name: 'Utilsateurs',
-        url: '/utilisateurs'
+        name: 'Espace patient',
+        url: '/rdv',
     },
     {
         name: 'Configurer les paramètres',
@@ -45,5 +38,9 @@ export const ADMIN_MENU: Menu [] = [
     {
         name: 'Rubriques commentaires',
         url: '/commentaires'
+    },
+    {
+        name: 'Utilsateurs',
+        url: '/utilisateurs'
     }
 ];

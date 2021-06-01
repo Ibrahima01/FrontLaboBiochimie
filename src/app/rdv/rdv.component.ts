@@ -21,6 +21,7 @@ export class RdvComponent implements OnInit {
   idRDV: number=1;
   erreur1: any='';
   erreur2: any='';
+  message: string = '';
   erreurCommentaire: any='';
   //var img=new HTMLImageElement();
   user: User=new User(0,"",'','PATIENT');
@@ -81,7 +82,7 @@ export class RdvComponent implements OnInit {
   }
   delete(): void {    
     this.rdvService.deleteRDV(this.rdv.id_RDV!).subscribe(res=>{
-      this.mes
+      this.rdv=res;
     });
   }
 }
