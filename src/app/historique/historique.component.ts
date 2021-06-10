@@ -22,6 +22,8 @@ export class HistoriqueComponent implements OnInit {
     nom: "",
   };
 
+  isLoading: boolean=false;
+
   ngOnInit(): void {
     this.personne = getPersonneFromLocalStorage();
     this.getHistorique();
@@ -29,9 +31,12 @@ export class HistoriqueComponent implements OnInit {
   rdv: RDV[]=[];
   idPatient: number=1;
   getHistorique():void{
+    this.isLoading=true;
     this.idPatient=this.personne.user.id;
     this.historiqueService.getHistoriqueRDVPatient(this.idPatient).subscribe(
-      res=>{this.rdv=res}
+      res=>{this.rdv=res
+      this.isLoading=false;
+      }
     );
     console.log( this.rdv);
   }

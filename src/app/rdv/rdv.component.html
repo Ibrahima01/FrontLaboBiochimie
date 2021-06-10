@@ -1,25 +1,22 @@
-<app-menu></app-menu>
-<div class="container">
-    
+<h1>BIENVENUE</h1>
+<img src="../assets/rdv.jpg"><br><br><br>
     <div class="form-group">
-        <form >
-            <label >Votre identifiant</label><br>
-            <input class="form-control" disabled="true" type="id" name="id" size="20" maxlength="40"  value=""  [(ngModel)]="personne.user.id"><br>
-            <label >Nom :</label><br>
-            <input class="form-control" disabled="true" type="text" name="nom" size="20"  maxlength="40" id="nom" value="" [(ngModel)]="personne.nom"/><br>
-            <label >Prénom :</label><br>
-            <input class="form-control"  disabled="true" type="text" name="prenom" size="20" maxlength="40" id="prenom" value="" [(ngModel)]="personne.prenom"/>
-    
-        </form>
+        <div id="gloabl">
+            <form id="gauche">
+                <h2>Vos informations</h2>
+                <label >Identifiant</label><br>
+                <input class="form-control" disabled="true" type="id" name="id" size="20" maxlength="40"  value=""  [(ngModel)]="personne.user.id"><br>
+                <label >Nom :</label><br>
+                <input class="form-control" disabled="true" type="text" name="nom" size="20"  maxlength="40" id="nom" value="" [(ngModel)]="personne.nom"/><br>
+                <label >Prénom :</label><br>
+                <input class="form-control"  disabled="true" type="text" name="prenom" size="20" maxlength="40" id="prenom" value="" [(ngModel)]="personne.prenom"/>
+        
+            </form>
+        </div>
     </div>
-    <div class="alert alert-success" *ngIf="erreur1=='no'">
-        La date du rendez-vous est le {{dateStr}}.
-    </div>
-    <div class="alert alert-danger" *ngIf="erreur1!='no' && erreur1.length>0">
-    {{erreur1}}
-    </div>
+
     <div class="alert alert-success" *ngIf="erreur2=='no'">
-        Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le {{dateStr}} au box numéro {{rdv.numero_box}}.<br><br> 
+        Rendez-vous pris avec succèss ! Vous êtes priés de vous présenter le {{dateStr}}.<br><br> 
         <button class="btn btn-danger" (click)="delete()">Annuler RDV</button>
     </div>
     <div class="alert alert-danger" *ngIf="erreur2!='no' && erreur2.length>0">
@@ -28,7 +25,6 @@
     <div>
         <form >
             <p>
-                <!--<button class="btn btn-primary" (click)="afficherDate()">Afficher la date du RDV</button>-->
                 <button class="btn btn-primary" (click)="prendreRDVById()">Prendre un RDV</button>
             </p>
         </form>
@@ -43,14 +39,15 @@
             textarea {
                 padding: 10px;
                 height: auto;
-                line-height: 1.5;
+                line-height: 3;
                 border-radius: 5px;
                 border: 1px solid #ccc;
                 box-shadow: 1px 1px 1px #999;
+                width: 63%;
             }
         </style>
         <textarea id="story" name="story" rows="5" cols="33" [(ngModel)]="commentaire.commentaire">
-        </textarea><br>
+        </textarea><br><br>
         <button class="btn btn-info" (click)="commenter()">Envoyer</button><br><br>
         <div class="alert alert-success" *ngIf="erreurCommentaire=='no'">
             Commentaire envoyé.<br><br> 
@@ -58,5 +55,3 @@
         <div class="alert alert-danger" *ngIf="erreurCommentaire!='no' && erreur2.length>0">
             {{erreur2}}
         </div>
-    </div>
-</div>

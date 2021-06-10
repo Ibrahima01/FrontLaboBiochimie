@@ -38,6 +38,8 @@ import { PresentationComponent } from './presentation/presentation.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactsService } from './services/contacts.service';
 import { PresentationService } from './services/presentation.service';
+import { NumboxComponent } from './numbox/numbox.component';
+import { NumBoxService } from './services/numbox.service';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { PresentationService } from './services/presentation.service';
     CreercompteComponent,
     PresentationComponent,
     ContactsComponent,
+    NumboxComponent,
   ],
   imports: [FormsModule, BrowserModule, HttpClientModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [
@@ -73,6 +76,7 @@ import { PresentationService } from './services/presentation.service';
     HistoriqueService,
     ContactsService,
     PresentationService,
+    NumBoxService,
     LoginService,
     AuthGuardService,
     PatientGuardService,

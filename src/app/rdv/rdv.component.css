@@ -1,0 +1,15 @@
+#global{
+    width:100%;
+  }
+  #droite, #gauche {
+      display: inline-block;
+      vertical-align: top;
+  }
+  #gauche {
+      width: 63%; 
+      padding: 100px, 100px, 100px,100px;
+  }
+   
+  #droite {
+      width: 60%;
+  }

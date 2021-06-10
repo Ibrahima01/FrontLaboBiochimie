@@ -5,7 +5,7 @@ import { BASE_URL, TOKEN_KEY } from "../config/constant";
 import { RDV } from "../models/rdv";
 
 @Injectable()
-export class HistoriqueService{
+export class NumBoxService{
     headers: HttpHeaders;
     constructor (private http: HttpClient){
          this.headers = new HttpHeaders({
@@ -13,10 +13,8 @@ export class HistoriqueService{
                 Authorization: `Bearer ${localStorage.getItem(TOKEN_KEY) || ''}`,
         });
     }
-    getHistoriqueRDVPatient(idPatient:number):Observable<RDV[]>{
-        return this.http.get<RDV[]>(`${BASE_URL}/RDV/historique/${idPatient}`, {headers:this.headers});
-    }
-    getHistoriqueRDVAdmin(idAdmin:number):Observable<RDV[]>{
-        return this.http.get<RDV[]>(`${BASE_URL}/RDV/historiqueAdmin/${idAdmin}`, {headers:this.headers});
+    updateNumBox(id: number, nombreBox:number):Observable<RDV>{
+        return this.http.post<RDV>(`${BASE_URL}/RDV/updateNumBox/${id}/${nombreBox}`, {}, 
+        { headers: this.headers })
     }
 }

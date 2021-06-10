@@ -17,10 +17,14 @@ export class LoginComponent implements OnInit {
 
   getPersonneInfo(): void {
     this.loginService.personne().subscribe(res => {
-      if(res) {
+      if(res.user.role=="PATIENT") {
         localStorage.setItem(PERSONNE_KEY, JSON.stringify(res));
           this.router.navigate(['rdv']);
-    }
+      }
+      else{
+        localStorage.setItem(PERSONNE_KEY, JSON.stringify(res));
+          this.router.navigate(['configuration']);
+      }
     })
   }
   login(): void {

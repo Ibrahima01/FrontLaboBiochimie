@@ -1,0 +1,13 @@
+<div class="container">
+    <label>Identifiant du patient</label>
+    <input class="form-control" name="idPatient" [(ngModel)]="idPatient"><br>
+    <label>Nombre de box disponible(s)</label>
+    <input class="form-control" name="nombre_BOX" [(ngModel)]="numBox"><br>
+    <button class="btn btn-success" (click)="updateNumBox()">Affecter à un box</button><br><br>
+    <div class="alert alert-success" *ngIf="erreur=='no'">
+        Le patient est prié de se présenter au box numéro {{rdv.numero_box}}.<br><br> 
+    </div>
+    <div class="alert alert-danger" *ngIf="erreur!='no' && erreur.length>0">
+        {{erreur}}
+    </div>
+</div>

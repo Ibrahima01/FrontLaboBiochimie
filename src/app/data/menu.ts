@@ -27,10 +27,12 @@ export const PATIENT_MENU: Menu [] = [
 ];
 
 export const ADMIN_MENU: Menu [] = [
+    /*
     {
         name: 'Espace patient',
         url: '/rdv',
     },
+    */
     {
         name: 'Configurer les paramètres',
         url: '/configuration'
@@ -41,6 +43,10 @@ export const ADMIN_MENU: Menu [] = [
     },
     {
         name: 'Utilsateurs',
-        url: '/utilisateurs'
+        url: '/listePatient'
+    },
+    {
+        name:'Affecter un patient dans un box',
+        url:'/numeroBox'
     }
 ];

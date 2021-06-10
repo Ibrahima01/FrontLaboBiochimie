@@ -16,6 +16,7 @@ import { CommentairesComponent } from './commentaires/commentaires.component';
 import { HistoriqueComponent } from './historique/historique.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { PresentationComponent } from './presentation/presentation.component';
+import { NumboxComponent } from './numbox/numbox.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   {
     path: 'listePatient',
     component: ListePatientsComponent,
-    canActivate: [AuthGuardService, PatientGuardService],
+    
   },
   {
     path: 'creercompte',
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'presentation',
     component: PresentationComponent,
+  },
+  {
+    path: 'numeroBox',
+    component: NumboxComponent,
   },
   { path: 'rdv', component: RdvComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
